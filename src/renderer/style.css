@@ -1,0 +1,53 @@
+.header {
+    text-align: center;
+    grid-area: header;
+}
+
+.thesis {
+    background-color: #333333;
+    color: white;
+    grid-area: thesis;
+}
+
+.intro {
+    grid-area: intro;
+    background-color: #192b4e;
+    color: white;
+}
+
+.app {
+    grid-area: app;
+}
+
+.space-left {
+    grid-area: space-l;
+}
+
+.space-right {
+    grid-area: space-r;
+}
+@media screen and (max-width: 600px) {
+    .container {
+        display: grid;
+        grid-template:auto / 1fr;
+        grid-gap: 10px;
+        grid-gap: 10px;
+        grid-template-areas: 
+            "header"
+            "thesis"
+            "intro"
+            "app";
+    }   
+}
+
+@media screen and (min-width: 601px) {
+    .container {
+        display: grid;
+        grid-template: auto / 1fr 1fr 1fr;
+        grid-gap: 10px;
+        grid-template-areas: 
+            "space-l header space-r"
+            "thesis intro intro"
+            "app app app";
+    }
+}
