@@ -1,5 +1,5 @@
 {
-  "name": "vue-js-electron-build",
+  "name": "vue-js-electron-skeleton",
   "version": "0.1.0",
   "description": "",
   "main": "app/main/main.js",
