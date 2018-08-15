@@ -4,6 +4,14 @@ const { BrowserWindow, app } = require('electron')
 const isDev = require('electron-is-dev')
 const { resolve } = require('app-root-path')
 
+const devPath = 'http://localhost:8888'
+const prodPath = format({
+  pathname: resolve('app/renderer/production/index.html'),
+  protocol: 'file:',
+  slashes: true
+})
+
+
 app.on('ready', async () => {
   const mainWindow = new BrowserWindow({
     width: 800,
@@ -13,15 +21,11 @@ app.on('ready', async () => {
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
-    if (isDev) { mainWindow.webContents.openDevTools() }
+    if (isDev) {
+      mainWindow.webContents.openDevTools()
+    }
   })
 
-  const devPath = 'http://localhost:8888'
-  const prodPath = format({
-    pathname: resolve('app/renderer/production/index.html'),
-    protocol: 'file:',
-    slashes: true
-  })
   const url = isDev ? devPath : prodPath
 
   mainWindow.setMenu(null)
